@@ -74,7 +74,7 @@ def render_3d_viewer(pdb_string, chain_color, water_color, h_color, bg_color):
 
 # --- Main App UI ---
 st.title("⚡ SPARK: Structure Parser, Alignment, and Reformatting Kit")
-st.markdown("Convert, Preprocess, and Compare 3D Protein Structures interactively.")
+st.markdown("SPARK is a lightweight Python toolkit bridging classic PDB with modern AI models. Seamlessly convert mmCIF & JSON formats to PDB, parse complex coordinate data, and run high-precision structural alignments to compare and evaluate multiple models of the same protein.")
 
 # ==========================================
 # GLOBAL SIDEBAR CONTROLS
