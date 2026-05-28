@@ -1,3 +1,4 @@
+
 import streamlit as st
 import pandas as pd
 import json
@@ -50,9 +51,11 @@ def get_pdb_stats(structure):
     return stats, chains
 
 def render_3d_viewer(pdb_string, chain_color, water_color, h_color, bg_color):
-    """Renders a single py3Dmol viewer with customized colors."""
+    """Renders a single py3Dmol viewer with customized colors and forced Hydrogen rendering."""
     view = py3Dmol.view(width=800, height=500)
-    view.addModel(pdb_string, 'pdb')
+    
+    # CRUCIAL: Added {'keepH': True} to prevent py3Dmol from automatically deleting hydrogens
+    view.addModel(pdb_string, 'pdb', {'keepH': True})
     
     # 1. Style Chains
     if chain_color == 'spectrum':
@@ -251,7 +254,9 @@ with tab3:
         
         for i, pdb_str in enumerate(pdb_data_list):
             r, c = divmod(i, 3)
-            grid_view.addModel(pdb_str, 'pdb', viewer=(r, c))
+            
+            # CRUCIAL: Added {'keepH': True} to prevent py3Dmol from automatically deleting hydrogens
+            grid_view.addModel(pdb_str, 'pdb', {'keepH': True}, viewer=(r, c))
             
             if chain_color == 'spectrum':
                 grid_view.setStyle({'model': -1}, {"cartoon": {'color': 'spectrum'}}, viewer=(r, c))
