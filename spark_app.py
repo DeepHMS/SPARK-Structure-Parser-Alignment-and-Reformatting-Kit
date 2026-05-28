@@ -52,10 +52,11 @@ def get_pdb_stats(structure):
     return stats, chains
 
 def render_3d_viewer(pdb_string, color_scheme='chain', bg_color='white'):
-    """Renders a single py3Dmol viewer."""
+    """Renders a single py3Dmol viewer showing protein, water, and hydrogens."""
     view = py3Dmol.view(width=800, height=500)
     view.addModel(pdb_string, 'pdb')
     
+    # 1. Style the main protein backbone
     if color_scheme == 'chain':
         view.setStyle({'model': -1}, {"cartoon": {'color': 'spectrum'}})
     elif color_scheme == 'secondary structure':
@@ -63,6 +64,13 @@ def render_3d_viewer(pdb_string, color_scheme='chain', bg_color='white'):
     else:
         view.setStyle({'model': -1}, {"cartoon": {'color': color_scheme}})
         
+    # 2. CRUCIAL: Explicitly style Water (HOH) molecules as red spheres
+    view.addStyle({'resn': 'HOH'}, {'sphere': {'color': 'red', 'radius': 0.5}})
+    view.addStyle({'resn': 'WAT'}, {'sphere': {'color': 'red', 'radius': 0.5}})
+    
+    # 3. CRUCIAL: Explicitly style Hydrogen atoms as tiny white/yellow spheres
+    view.addStyle({'element': 'H'}, {'sphere': {'color': 'white', 'radius': 0.25}})
+    
     view.setBackgroundColor(bg_color)
     view.zoomTo()
     return view
@@ -251,6 +259,7 @@ with tab3:
             r, c = divmod(i, 3)
             grid_view.addModel(pdb_str, 'pdb', viewer=(r, c))
             
+            # Style the backbone for this grid slot
             if color_palette == 'chain':
                 grid_view.setStyle({'model': -1}, {"cartoon": {'color': 'spectrum'}}, viewer=(r, c))
             elif color_palette == 'secondary structure':
@@ -258,6 +267,11 @@ with tab3:
             else:
                 grid_view.setStyle({'model': -1}, {"cartoon": {'color': color_palette}}, viewer=(r, c))
                 
+            # Render Waters and Hydrogens in the grid slots too!
+            grid_view.addStyle({'resn': 'HOH'}, {'sphere': {'color': 'red', 'radius': 0.5}}, viewer=(r, c))
+            grid_view.addStyle({'resn': 'WAT'}, {'sphere': {'color': 'red', 'radius': 0.5}}, viewer=(r, c))
+            grid_view.addStyle({'element': 'H'}, {'sphere': {'color': 'white', 'radius': 0.25}}, viewer=(r, c))
+            
             # Add label text to the corner of each viewer
             grid_view.addLabel(labels[i], {'position': {'x':0, 'y':0, 'z':0}, 'useScreen': True, 'fontColor': 'black' if theme_bg == 'white' else 'white', 'backgroundColor': 'transparent', 'fontSize': 16, 'alignment': 'topLeft'}, viewer=(r, c))
             grid_view.zoomTo(viewer=(r, c))
