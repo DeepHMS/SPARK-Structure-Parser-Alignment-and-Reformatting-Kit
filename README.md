@@ -1,7 +1,3 @@
-Here is a complete, professional `README.md` tailored for your GitHub repository based on the SPARK toolkit's capabilities. You can copy and paste this directly into your repo!
-
----
-
 # SPARK ⚡
 
 **Structure Parser, Alignment, and Reformatting Kit**
@@ -9,6 +5,18 @@ Here is a complete, professional `README.md` tailored for your GitHub repository
 **SPARK** is a lightweight Python toolkit bridging classic PDB with modern AI models. Seamlessly convert mmCIF & JSON formats to PDB, parse complex coordinate data, and run high-precision structural alignments to compare and evaluate multiple models of the same protein.
 
 Whether you are standardizing raw prediction outputs from deep learning models (like AlphaFold, OpenFold2, or Boltz-1/2), benchmarking algorithms, or visualizing atomic nuances, SPARK provides a unified pipeline.
+
+### 🌐 Try the Live Web App!
+
+SPARK is also available as a fully interactive, ready-to-use Streamlit web application: **[spark-neo.streamlit.app](https://spark-neo.streamlit.app/)**
+
+> 💡 **Quick Tips for the Web App:**
+> * **Is the app sleeping?** Free Streamlit servers occasionally pause inactive apps. If you see a "sleeping" or "down" page, simply click the **Wake Up** button and give it a minute or two to boot back up.
+> * **Dark vs. Light Theme:** The tool supports both dark and light UI themes! Make sure to use the **"Viewer Background"** toggle in the sidebar to match your system theme so the 3D molecular structures contrast perfectly.
+> 
+> 
+
+---
 
 ## ✨ Key Features
 
@@ -25,7 +33,7 @@ Whether you are standardizing raw prediction outputs from deep learning models (
 
 ## 📦 Installation
 
-To use SPARK, you will need Python 3.8+ and the following dependencies. You can install them via pip:
+To use SPARK locally, you will need Python 3.8+ and the following dependencies. You can install them via pip:
 
 ```bash
 pip install biopython numpy pandas py3Dmol
@@ -73,10 +81,10 @@ Run the visualization block in the notebook to launch a synchronized 4-panel int
 * `SPARK_–_Structure_Parser,_Alignment,_and_Reformatting_Kit.ipynb`: The main pipeline notebook containing all functions for conversion, analysis, and visualization.
 * `data/` *(Recommend creating this)*: Folder to place your input `.json`, `.cif`, and `.pdb` files.
 
-## 🤝 Contributing
+👨‍💻 Developer & Contributor
 
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://www.google.com/search?q=https://github.com/yourusername/spark/issues) if you want to contribute.
+Dr. Deeptarup Biswas - [LinkedIn Profile](https://www.linkedin.com/in/deeptarup-biswas-039825178/)
 
 ## 📜 License
 
-This project is licensed under the MIT License - see the [LICENSE](https://www.google.com/search?q=LICENSE) file for details.
+This project is licensed under the MIT License - see the LICENSE file for details.
