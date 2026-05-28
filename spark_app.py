@@ -74,13 +74,16 @@ def render_3d_viewer(pdb_string, chain_color, water_color, h_color, bg_color):
 
 # --- Main App UI ---
 st.title("⚡ SPARK: Structure Parser, Alignment, and Reformatting Kit")
-st.markdown("SPARK is a lightweight Python toolkit bridging classic PDB with modern AI models. Seamlessly convert mmCIF & JSON formats to PDB, parse complex coordinate data, and run high-precision structural alignments to compare and evaluate multiple models of the same protein. 
-1️⃣ Format Conversions: Upload raw structural predictions from modern AI models (like Boltz-1/2 JSONs) or standard mmCIF files to instantly extract and convert them into universal .pdb format. Quickly visualize your newly converted structure and download the clean file for downstream analysis.
+st.markdown("**SPARK** is a lightweight Python toolkit bridging classic PDB with modern AI models. Seamlessly convert mmCIF & JSON formats to PDB, parse complex coordinate data, and run high-precision structural alignments to compare and evaluate multiple models of the same protein.")
 
-2️⃣ Preprocessing & Clean-Up: Fine-tune individual protein structures by selectively filtering out unwanted elements like specific chains, water molecules (HOH), or explicit hydrogen atoms. Review a dynamic statistical breakdown of your modifications before downloading the optimized, ready-to-use PDB file.
+with st.expander("1️⃣ Format Conversions"):
+    st.write("Upload raw structural predictions from modern AI models (like Boltz-1/2 JSONs) or standard mmCIF files to instantly extract and convert them into universal `.pdb` format. Quickly visualize your newly converted structure and download the clean file for downstream analysis.")
 
-3️⃣ Structure Model Comparison: Evaluate multiple structural models of the exact same protein simultaneously using a fully interactive, synchronized 3D grid viewer. Easily visually compare structural variations while reviewing a comprehensive metrics table detailing atomic counts and sequence data.")
+with st.expander("2️⃣ Preprocessing & Clean-Up"):
+    st.write("Fine-tune individual protein structures by selectively filtering out unwanted elements like specific chains, water molecules (HOH), or explicit hydrogen atoms. Review a dynamic statistical breakdown of your modifications before downloading the optimized, ready-to-use PDB file.")
 
+with st.expander("3️⃣ Structure Model Comparison"):
+    st.write("Evaluate multiple structural models of the exact same protein simultaneously using a fully interactive, synchronized 3D grid viewer. Easily visually compare structural variations while reviewing a comprehensive metrics table detailing atomic counts and sequence data.")
 # ==========================================
 # GLOBAL SIDEBAR CONTROLS
 # ==========================================
