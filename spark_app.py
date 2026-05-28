@@ -1,4 +1,3 @@
-
 import streamlit as st
 import pandas as pd
 import json
@@ -54,7 +53,6 @@ def render_3d_viewer(pdb_string, chain_color, water_color, h_color, bg_color):
     """Renders a single py3Dmol viewer with customized colors and forced Hydrogen rendering."""
     view = py3Dmol.view(width=800, height=500)
     
-    # CRUCIAL: Added {'keepH': True} to prevent py3Dmol from automatically deleting hydrogens
     view.addModel(pdb_string, 'pdb', {'keepH': True})
     
     # 1. Style Chains
@@ -246,16 +244,20 @@ with tab3:
         df_compare = pd.DataFrame(stats_list).set_index('Model Name')
         st.dataframe(df_compare, use_container_width=True)
         
-        st.subheader("🔬 Synchronized Grid Viewer")
+        st.subheader("🔬 Interactive Grid Viewer")
+        
+        # --- NEW SYNCHRONIZATION CHECKBOX ---
+        sync_views = st.checkbox("🔄 Synchronize Viewers (Zoom/Pan)", value=True, help="If checked, interacting with one model will move all models. Uncheck to move them independently.")
+        
         rows = (len(pdb_data_list) + 2) // 3
         
-        grid_view = py3Dmol.view(viewergrid=(rows, 3), width=1200, height=400 * rows, linked=True)
+        # Apply the sync_views boolean to the linked parameter
+        grid_view = py3Dmol.view(viewergrid=(rows, 3), width=1200, height=400 * rows, linked=sync_views)
         grid_view.setBackgroundColor(bg_color)
         
         for i, pdb_str in enumerate(pdb_data_list):
             r, c = divmod(i, 3)
             
-            # CRUCIAL: Added {'keepH': True} to prevent py3Dmol from automatically deleting hydrogens
             grid_view.addModel(pdb_str, 'pdb', {'keepH': True}, viewer=(r, c))
             
             if chain_color == 'spectrum':
