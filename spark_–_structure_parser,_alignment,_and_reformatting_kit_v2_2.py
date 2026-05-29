@@ -785,4 +785,4 @@ def create_linked_viewer_dark(directory="."):
     view.show()
 
 # Run the dark-mode viewer
-# create_linked_viewer_dark()
+create_linked_viewer_dark()
