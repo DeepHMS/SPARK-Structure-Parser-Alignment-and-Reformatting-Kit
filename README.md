@@ -4,7 +4,7 @@
 
 **Structure Parser, Alignment, and Reformatting Kit**
 
-**SPARK** is a lightweight Python toolkit bridging classic PDB with modern AI models. Seamlessly convert mmCIF & JSON formats to PDB, parse complex coordinate data, and run high-precision structural alignments to compare and evaluate multiple models of the same protein.
+**SPARK** is a lightweight Python toolkit manages classic PDB with modern AI models. Seamlessly convert mmCIF & JSON formats to PDB, parse complex coordinate data, and run high-precision structural alignments to compare and evaluate multiple models of the same protein.
 
 Whether you are standardizing raw prediction outputs from deep learning models (like AlphaFold, OpenFold2, or Boltz-1/2), benchmarking algorithms, or visualizing atomic nuances, SPARK provides a unified pipeline.
 
