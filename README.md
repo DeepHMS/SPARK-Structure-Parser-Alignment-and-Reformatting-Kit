@@ -1,3 +1,5 @@
+![SPARK Logo](SPARK.png)
+
 # SPARK ⚡
 
 **Structure Parser, Alignment, and Reformatting Kit**
@@ -30,15 +32,6 @@ SPARK is also available as a fully interactive, ready-to-use Streamlit web appli
 
 * 📊 **Automated Reporting:** Compiles all structural metrics into a clean, easy-to-read Pandas DataFrame for side-by-side model evaluation.
 * 🔬 **Interactive 3D Visualization:** Features an embedded 4-panel `py3Dmol` viewer to visualize and compare proteins, isolating specific elements like Water (HOH) and Hydrogens across different chains.
-
-## 📦 Installation
-
-To use SPARK locally, you will need Python 3.8+ and the following dependencies. You can install them via pip:
-
-```bash
-pip install biopython numpy pandas py3Dmol
-
-```
 
 ## 🚀 Quick Start & Usage
 
