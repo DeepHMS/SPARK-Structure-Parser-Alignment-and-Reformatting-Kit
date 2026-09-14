@@ -1,4 +1,4 @@
-![SPARK Logo](SPARK.png)
+<img src="SPARK.png" alt="SPARK Logo" width="200">
 
 # SPARK ⚡
 
