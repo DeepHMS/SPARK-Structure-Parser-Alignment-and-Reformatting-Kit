@@ -8,7 +8,7 @@ Whether you are standardizing raw prediction outputs from deep learning models (
 
 ### 🌐 Try the Live Web App!
 
-SPARK is also available as a fully interactive, ready-to-use Streamlit web application: **[spark-neo.streamlit.app](https://spark-neo.streamlit.app/)**
+SPARK is also available as a fully interactive, ready-to-use Streamlit web application: **https://deepbiswas-spark.hf.space/**
 
 > 💡 **Quick Tips for the Web App:**
 > * **Is the app sleeping?** Free Streamlit servers occasionally pause inactive apps. If you see a "sleeping" or "down" page, simply click the **Wake Up** button and give it a minute or two to boot back up.
